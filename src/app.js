@@ -43,11 +43,6 @@ app.use((req, res, next) => {
 app.use('/', auth)
 app.use('/', index)
 
-require('./routes')(app, passport)
-
-/*
- * Server
- */
 // Start Server
 const port = process.env.APP_PORT || 8080
 const host = process.env.APP_URL || 'localhost'
