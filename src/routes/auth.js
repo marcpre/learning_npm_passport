@@ -2,14 +2,9 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const services = require('../service/auth')
-const session = require('../util/sessionChecker')
 
 router.get("/login", (req, res) => {
     res.render('login')
-})
-
-router.get("/dashboard", session.sessionChecker, (req, res) => {
-    res.render('dashboard')
 })
 
 router.get('/logout', (req, res) => {

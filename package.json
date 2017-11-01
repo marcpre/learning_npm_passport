@@ -1,9 +1,25 @@
 {
-  "name": "learning_passport",
+  "name": "workspace",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "knexfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcpre/learning_npm_passport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcpre/learning_npm_passport/issues"
+  },
+  "homepage": "https://github.com/marcpre/learning_npm_passport#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
@@ -21,20 +37,5 @@
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcpre/learning_passport.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/marcpre/learning_passport/issues"
-  },
-  "homepage": "https://github.com/marcpre/learning_passport#readme"
+  }
 }

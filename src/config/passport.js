@@ -15,7 +15,7 @@ module.exports = () => {
         done(null, user)
     })
     
-    // Sign in with Email and Password
+    // Sign in with username and Password
     passport.use('local', new LocalStrategy({
         usernameField: 'username'
     }, async(username, password, done) => {

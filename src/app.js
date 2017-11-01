@@ -9,6 +9,8 @@ const passport = require('passport')
 // configure passport
 require('./config/passport')(passport)
 const auth = require("./routes/auth")
+const index = require("./routes/index")
+
 const app = express()
 
 // view engine setup
@@ -30,14 +32,16 @@ app.use(
     })
 )
 app.use(passport.initialize())
+app.use(passport.session())
+
 app.use((req, res, next) => {
     res.locals.currentUser = req.user
     next()
 })
-/*
- * Routes
- */
+
+//routes
 app.use("/", auth)
+app.use("/", index)
 
 /*
  * Server
