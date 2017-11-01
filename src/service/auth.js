@@ -8,7 +8,7 @@ async function usernameExists(username) {
 
 async function signin(username, password) {
   const user = await knex('users').where({ username }).first()
-  console.log("user: " + user.username + " password: " + user.password)
+  console.log(`user: ${user.username} password: ${user.password}`)
   if (!user) return null
 
   return (await bcrypt.compare(password, user.password)) ? user : null
