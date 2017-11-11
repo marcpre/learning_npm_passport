@@ -24,13 +24,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, '/../public')))
 app.use(cookieParser())
 
-app.use(
-  session({
-    secret: 'super-mega-hyper-secret',
-    resave: false,
-    saveUninitialized: true,
-  })
-)
+app.use(session({
+  secret: 'super-mega-hyper-secret',
+  resave: false,
+  saveUninitialized: true,
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 
