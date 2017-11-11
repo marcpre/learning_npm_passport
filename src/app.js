@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
 // configure passport
-require('./config/passport')(passport)
+// require('./config/passport')(passport)
 const auth = require('./routes/auth')
 const index = require('./routes/index')
 
@@ -31,11 +31,6 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user
-  next()
-})
 
 // routes
 app.use('/', auth)

@@ -1,5 +1,8 @@
+const passportConfig = require('../config/passport')
+
 function isLogged(req, res, next) {
-  if (req.isAuthenticated()) {
+  const auth = this.passportConfig.isAuthenticated()
+  if (req.auth) {
     next()
   } else {
     res.redirect('/')
