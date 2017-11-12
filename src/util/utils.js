@@ -1,8 +1,7 @@
-const passportConfig = require('../config/passport')
-
-function isLogged(req, res, next) {
-  const auth = this.passportConfig.isAuthenticated()
-  if (req.auth) {
+// check for logged-in users
+function whenLoggedIn(req, res, next) {
+  if (req.session.user) {
+    res.locals.user = req.session.user
     next()
   } else {
     res.redirect('/')
@@ -10,5 +9,5 @@ function isLogged(req, res, next) {
 }
 
 module.exports = {
-  isLogged,
+  whenLoggedIn,
 }

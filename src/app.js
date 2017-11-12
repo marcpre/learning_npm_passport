@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
+const util = require('./util/utils')
 // configure passport
 // require('./config/passport')(passport)
 const auth = require('./routes/auth')
@@ -31,6 +32,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+util.whenLoggedIn()
 
 // routes
 app.use('/', auth)
