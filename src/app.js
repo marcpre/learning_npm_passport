@@ -6,9 +6,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
-const util = require('./util/utils')
-// configure passport
-// require('./config/passport')(passport)
+
 const auth = require('./routes/auth')
 const index = require('./routes/index')
 
@@ -28,11 +26,10 @@ app.use(cookieParser())
 app.use(session({
   secret: 'super-mega-hyper-secret',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-util.whenLoggedIn()
 
 // routes
 app.use('/', auth)

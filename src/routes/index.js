@@ -1,10 +1,9 @@
 const express = require('express')
-const passportConfig = require('../config/passport')
 
 const router = express.Router()
-const utils = require('../util/utils')
+const passportConfig = require('../config/passport')
 
-router.get('/', utils.isLogged(), (req, res) => {
+router.get('/', passportConfig.isAuthenticated, (req, res) => {
   res.render('dashboard')
 })
 

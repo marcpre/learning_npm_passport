@@ -21,4 +21,16 @@ passport.use('local', new LocalStrategy({
   const user = await serviceAuth.signin(username, password)
   done(null, user)
 }))
-// }
+
+
+/**
+ * Login Required middleware.
+ */
+exports.isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.session.user    
+    return next()
+  } else {
+    res.redirect('dashboard')
+  }
+}
