@@ -31,6 +31,6 @@ exports.isAuthenticated = (req, res, next) => {
     res.locals.user = req.session.user    
     return next()
   } else {
-    res.redirect('dashboard')
+    res.redirect('login')
   }
 }
